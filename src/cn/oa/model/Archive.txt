@@ -1,0 +1,305 @@
+package cn.oa.model;
+
+import java.util.Date;
+
+import org.nutz.dao.entity.annotation.Column;
+import org.nutz.dao.entity.annotation.PK;
+import org.nutz.dao.entity.annotation.Readonly;
+import org.nutz.dao.entity.annotation.Table;
+
+/**
+ * 个人档案.
+ *
+ * @author JELLEE@Yeah.Net
+ */
+@Table("hrm_archive")
+@PK({ "userId" })
+public class Archive {
+
+    @Column("user_id")
+    private Integer userId;
+    @Column("gender")
+    private Integer gender;
+    @Column("birthday")
+    private Date birthday;
+    @Column("place")
+    private String place;
+    @Column("marry")
+    private Integer marry;
+    @Column("degree")
+    private String degree;
+    @Column("major")
+    private String major;
+    @Column("school")
+    private String school;
+    @Column("idcard")
+    private String idcard;
+    @Column("phone")
+    private String phone;
+    @Column("entry_date")
+    private Date entryDate;
+    @Column("full_date")
+    private Date fullDate;
+    @Column("quit_date")
+    private Date quitDate;
+    @Column("position")
+    private String position;
+    @Column("address")
+    private String address;
+    @Column("exigency_phone")
+    private String exigencyPhone;
+    @Column("exigency_name")
+    private String exigencyName;
+    @Column("email")
+    private String email;
+    @Column("contract_start")
+    private Date contractStart;
+    @Column("contract_end")
+    private Date contractEnd;
+    @Column("amount")
+    private Integer amount;
+    @Column("on_position")
+    private Integer onPosition;
+    @Column("qq")
+    private String QQ;
+    @Column("Hukou")
+    private Integer hukou;
+    @Column("socialSecurity")
+    private Integer socialSecurity;
+
+    @Readonly
+    @Column("day_id")
+    private Integer dayId;
+    @Readonly
+    @Column("true_name")
+    private String trueName;
+    @Readonly
+    @Column("job_number")
+    private String jobNumber;
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public Integer getGender() {
+        return gender;
+    }
+
+    public void setGender(Integer gender) {
+        this.gender = gender;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getPlace() {
+        return place;
+    }
+
+    public void setPlace(String place) {
+        this.place = place;
+    }
+
+    public Integer getMarry() {
+        return marry;
+    }
+
+    public void setMarry(Integer marry) {
+        this.marry = marry;
+    }
+
+    public String getDegree() {
+        return degree;
+    }
+
+    public void setDegree(String degree) {
+        this.degree = degree;
+    }
+
+    public String getMajor() {
+        return major;
+    }
+
+    public void setMajor(String major) {
+        this.major = major;
+    }
+
+    public String getSchool() {
+        return school;
+    }
+
+    public void setSchool(String school) {
+        this.school = school;
+    }
+
+    public String getIdcard() {
+        return idcard;
+    }
+
+    public void setIdcard(String idcard) {
+        this.idcard = idcard;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public Date getEntryDate() {
+        return entryDate;
+    }
+
+    public void setEntryDate(Date entryDate) {
+        this.entryDate = entryDate;
+    }
+
+    public Date getFullDate() {
+        return fullDate;
+    }
+
+    public void setFullDate(Date fullDate) {
+        this.fullDate = fullDate;
+    }
+
+    public Date getQuitDate() {
+        return quitDate;
+    }
+
+    public void setQuitDate(Date quitDate) {
+        this.quitDate = quitDate;
+    }
+
+    public Integer getDayId() {
+        return dayId;
+    }
+
+    public void setDayId(Integer dayId) {
+        this.dayId = dayId;
+    }
+
+    public String getTrueName() {
+        return trueName;
+    }
+
+    public void setTrueName(String trueName) {
+        this.trueName = trueName;
+    }
+
+    public String getJobNumber() {
+        return jobNumber;
+    }
+
+    public void setJobNumber(String jobNumber) {
+        this.jobNumber = jobNumber;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getExigencyPhone() {
+        return exigencyPhone;
+    }
+
+    public void setExigencyPhone(String exigencyPhone) {
+        this.exigencyPhone = exigencyPhone;
+    }
+
+    public String getExigencyName() {
+        return exigencyName;
+    }
+
+    public void setExigencyName(String exigencyName) {
+        this.exigencyName = exigencyName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Date getContractStart() {
+        return contractStart;
+    }
+
+    public void setContractStart(Date contractStart) {
+        this.contractStart = contractStart;
+    }
+
+    public Date getContractEnd() {
+        return contractEnd;
+    }
+
+    public void setContractEnd(Date contractEnd) {
+        this.contractEnd = contractEnd;
+    }
+
+    public Integer getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Integer amount) {
+        this.amount = amount;
+    }
+
+    public Integer getOnPosition() {
+        return onPosition;
+    }
+
+    public void setOnPosition(Integer onPosition) {
+        this.onPosition = onPosition;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public String getQQ() {
+        return QQ;
+    }
+
+    public void setQQ(String qQ) {
+        QQ = qQ;
+    }
+
+    public Integer getHukou() {
+        return hukou;
+    }
+
+    public void setHukou(Integer hukou) {
+        this.hukou = hukou;
+    }
+
+    public Integer getSocialSecurity() {
+        return socialSecurity;
+    }
+
+    public void setSocialSecurity(Integer socialSecurity) {
+        this.socialSecurity = socialSecurity;
+    }
+
+
+}

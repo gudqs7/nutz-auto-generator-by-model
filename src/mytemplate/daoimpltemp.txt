@@ -1,0 +1,14 @@
+package {{basePackage}}.dao.impl;
+
+import cn.oa.cyb.base.BaseDaoImpl;
+import {{basePackage}}.dao.{{daoName}};
+import {{basePackage}}.model.{{className}};
+import org.nutz.ioc.loader.annotation.IocBean;
+
+/**
+ * @author generator-wq
+ * @date {{date}}
+ */
+@IocBean(name = "{{daoBeanName}}")
+public class {{daoImplName}} extends BaseDaoImpl<{{className}}> implements {{daoName}} {
+}

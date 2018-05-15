@@ -1,0 +1,11 @@
+package {{basePackage}}.dao;
+
+import cn.oa.cyb.base.IBaseDao;
+import {{basePackage}}.model.{{className}};
+
+/**
+ * @author generator-wq
+ * @date {{date}}
+ */
+public interface {{daoName}} extends IBaseDao<{{className}}> {
+}

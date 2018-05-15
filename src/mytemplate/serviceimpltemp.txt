@@ -1,0 +1,25 @@
+package {{basePackage}}.service.impl;
+
+import cn.oa.cyb.base.BaseServiceImpl;
+import cn.oa.cyb.base.IBaseDao;
+import {{basePackage}}.model.{{className}};
+import {{basePackage}}.service.{{serviceName}};
+import org.apache.log4j.Logger;
+import org.nutz.ioc.loader.annotation.Inject;
+import org.nutz.ioc.loader.annotation.IocBean;
+
+/**
+  * @author generator-wq
+  * @date {{date}}
+ */
+@IocBean(name = "{{serviceBeanName}}")
+public class {{serviceImplName}} extends BaseServiceImpl<{{className}}> implements {{serviceName}} {
+
+    private static Logger logger = Logger.getLogger("{{serviceImplName}}");
+
+    @Inject("refer:{{daoBeanName}}")
+    public void setBaseDao(IBaseDao<{{className}}> baseDao) {
+        this.baseDao = baseDao;
+    }
+
+}

@@ -1,0 +1,43 @@
+package {{basePackage}}.web;
+
+import cn.oa.cyb.base.BaseController;
+import cn.oa.cyb.base.pojo.ParamVo;
+import {{basePackage}}.model.{{className}};
+import {{basePackage}}.service.{{serviceName}};
+import cn.oa.utils.Strings;
+import cn.oa.utils.web.Https;
+import cn.oa.utils.web.Page;
+import org.nutz.dao.Cnd;
+import org.nutz.dao.sql.Criteria;
+import org.nutz.ioc.loader.annotation.Inject;
+import org.nutz.ioc.loader.annotation.IocBean;
+import org.nutz.mvc.adaptor.JsonAdaptor;
+import org.nutz.mvc.annotation.AdaptBy;
+import org.nutz.mvc.annotation.At;
+import org.nutz.mvc.annotation.Ok;
+
+/**
+  * @author generator-wq
+  * @date {{date}}
+ */
+@IocBean
+@At("/{{controllerUrl}}")
+public class {{controllerName}} extends BaseController {
+
+    @Inject("refer:{{serviceBeanName}}")
+    private {{serviceName}} {{serviceBeanName}};
+
+    @At("/findAll")
+    @Ok("json")
+    @AdaptBy(type = JsonAdaptor.class)
+    public Object findAll(ParamVo<{{className}}> paramVo) throws Exception {
+        Criteria cri = Cnd.cri();
+        String nameLike = Https.getStr(paramVo.getOther(), "nameLike");
+        if (!Strings.isEmpty(nameLike)) {
+            cri.where().andLike("userName", "%" + nameLike + "%");
+        }
+        Page<{{className}}> page = {{serviceBeanName}}.findAll(paramVo, cri);
+        return success(page);
+    }
+
+}

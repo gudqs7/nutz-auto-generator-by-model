@@ -1,0 +1,11 @@
+package {{basePackage}}.service;
+
+import cn.oa.cyb.base.IBaseService;
+import {{basePackage}}.model.{{className}};
+
+/**
+  * @author generator-wq
+  * @date {{date}}
+ */
+public interface {{serviceName}} extends IBaseService<{{className}}> {
+}

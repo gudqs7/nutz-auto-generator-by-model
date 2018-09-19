@@ -16,6 +16,7 @@ public class Main {
     private static String PACKAGE = "";
     private static String FILE = "";
     private static String SUFFIX = "java";
+    private static String PREFIX = "src/";
     private static String BASE_PACKAGE = "java";
     private static Map<String, GeneratorTaskVo> classNames = new HashMap<>();
 
@@ -27,6 +28,7 @@ public class Main {
             PACKAGE = config.getProperty("generator.package");
             FILE = config.getProperty("generator.file");
             SUFFIX = config.getProperty("generator.suffix");
+            PREFIX = config.getProperty("generator.prefix");
             BASE_PACKAGE = config.getProperty("generator.basepackage");
             OVERRIDE = config.getProperty("generator.override");
         } catch (IOException e) {
@@ -42,14 +44,14 @@ public class Main {
                 String filePath = file[i];
                 String className = filePath.substring(filePath.lastIndexOf('.') + 1, filePath.length());
                 String packageName = filePath.substring(0, filePath.lastIndexOf('.'));
-                filePath = "src/" + filePath.replaceAll("\\.", "/").concat("." + SUFFIX);
+                filePath = PREFIX + filePath.replaceAll("\\.", "/").concat("." + SUFFIX);
                 generateSingleFile(filePath, className, packageName);
             }
         } else {
             if (PACKAGE != null && !"".equals(PACKAGE)) {
                 String[] packageArr = PACKAGE.split(",");
                 for (String packageName : packageArr) {
-                    String packagePath = "src/" + packageName.replaceAll("\\.", "/");
+                    String packagePath = PREFIX + packageName.replaceAll("\\.", "/");
 
                     System.out.println("Generator With: " + packagePath);
                     System.out.println("-----------------------------");
@@ -86,12 +88,12 @@ public class Main {
     private static void generateSingleFile(String filePath, String className, String packageName) throws IOException {
         System.out.println("Generator with:" + filePath);
 
-        String modelPath = "src/" + (BASE_PACKAGE + ".entity").replaceAll("\\.", "/");
-        String daoPath = "src/" + (BASE_PACKAGE + ".mapper").replaceAll("\\.", "/");
-        String daoImplPath = "src/" + (BASE_PACKAGE + ".dao.impl").replaceAll("\\.", "/");
-        String servicePath = "src/" + (BASE_PACKAGE + ".service").replaceAll("\\.", "/");
-        String serviceImplPath = "src/" + (BASE_PACKAGE + ".service.impl").replaceAll("\\.", "/");
-        String controllerPath = "src/" + (BASE_PACKAGE + ".web").replaceAll("\\.", "/");
+        String modelPath = PREFIX + (BASE_PACKAGE + ".entity").replaceAll("\\.", "/");
+        String daoPath = PREFIX + (BASE_PACKAGE + ".mapper").replaceAll("\\.", "/");
+        String daoImplPath = PREFIX + (BASE_PACKAGE + ".dao.impl").replaceAll("\\.", "/");
+        String servicePath = PREFIX + (BASE_PACKAGE + ".service").replaceAll("\\.", "/");
+        String serviceImplPath = PREFIX + (BASE_PACKAGE + ".service.impl").replaceAll("\\.", "/");
+        String controllerPath = PREFIX + (BASE_PACKAGE + ".web").replaceAll("\\.", "/");
 
         classNames.put(className, new GeneratorTaskVo(className, packageName, modelPath, filePath));
 

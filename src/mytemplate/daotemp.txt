@@ -1,11 +1,12 @@
-package {{basePackage}}.dao;
+package {{basePackage}}.mapper;
 
-import cn.oa.cyb.base.IBaseDao;
-import {{basePackage}}.model.{{className}};
+import com.hioseo.base.BaseSqlMapper;
+import org.springframework.stereotype.Repository;
 
 /**
- * @author generator-wq
- * @date {{date}}
+ * @author generatorwq
+ * @date 2018/10/2
  */
-public interface {{daoName}} extends IBaseDao<{{className}}> {
+@Repository
+public interface {{daoName}} extends BaseSqlMapper{
 }

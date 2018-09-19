@@ -86,8 +86,8 @@ public class Main {
     private static void generateSingleFile(String filePath, String className, String packageName) throws IOException {
         System.out.println("Generator with:" + filePath);
 
-        String modelPath = "src/" + (BASE_PACKAGE + ".model").replaceAll("\\.", "/");
-        String daoPath = "src/" + (BASE_PACKAGE + ".dao").replaceAll("\\.", "/");
+        String modelPath = "src/" + (BASE_PACKAGE + ".entity").replaceAll("\\.", "/");
+        String daoPath = "src/" + (BASE_PACKAGE + ".mapper").replaceAll("\\.", "/");
         String daoImplPath = "src/" + (BASE_PACKAGE + ".dao.impl").replaceAll("\\.", "/");
         String servicePath = "src/" + (BASE_PACKAGE + ".service").replaceAll("\\.", "/");
         String serviceImplPath = "src/" + (BASE_PACKAGE + ".service.impl").replaceAll("\\.", "/");
@@ -97,13 +97,13 @@ public class Main {
 
 
         Map<String, String> data = new HashMap<>();
-        String daoBeanName = className.substring(0, 1).toLowerCase() + className.substring(1) + "Dao";
+        String daoBeanName = className.substring(0, 1).toLowerCase() + className.substring(1) + "Mapper";
         String controllerUrl = BASE_PACKAGE.substring(BASE_PACKAGE.lastIndexOf('.') + 1) + "/" + className.substring(0, 1).toLowerCase() + className.substring(1);
         String serviceBeanName = className.substring(0, 1).toLowerCase() + className.substring(1) + "Service";
         String daoImplName = className + "DaoImpl";
         String serviceImplName = className + "ServiceImpl";
         String controllerName = className + "Controller";
-        String daoName = "I" + className + "Dao";
+        String daoName = className + "Mapper";
         String serviceName = "I" + className + "Service";
 
         data.put("className", className + "Model");
@@ -113,7 +113,7 @@ public class Main {
         data.put("daoImplName", daoImplName);
         data.put("daoBeanName", daoBeanName);
         data.put("serviceName", serviceName);
-        data.put("serviceBeanName", serviceBeanName);
+        data.put("serviceBeanName", serviceBeanName + "Impl");
         data.put("serviceImplName", serviceImplName);
         data.put("controllerName", controllerName);
         data.put("date", new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new Date()));
@@ -130,8 +130,10 @@ public class Main {
 
         boolean success = FileHelper.writeFile(daoContent, new File(daoPath), new File(daoPath + "/" + daoName + ".java"));
         System.out.println("Write Dao--> " + success);
+        /*
         success = FileHelper.writeFile(daoImplContent, new File(daoImplPath), new File(daoImplPath + "/" + daoImplName + ".java"));
         System.out.println("Write DaoImpl--> " + success);
+        */
         success = FileHelper.writeFile(serviceContent, new File(servicePath), new File(servicePath + "/" + serviceName + ".java"));
         System.out.println("Write Service--> " + success);
         success = FileHelper.writeFile(serviceImplContent, new File(serviceImplPath), new File(serviceImplPath + "/" + serviceImplName + ".java"));
@@ -152,7 +154,7 @@ public class Main {
 
     private static String replaceFile(String content, String className, String packageName, Map<String, GeneratorTaskVo> allClassNames) {
         content = content.replaceAll("class " + className, "class " + className + "Model");
-        content = content.replaceAll("package " + packageName, "package " + BASE_PACKAGE + ".model");
+        content = content.replaceAll("package " + packageName, "package " + BASE_PACKAGE + ".entity");
         content = content.replaceAll("public *?" + className, "public " + className + "Model");
         for (String otherClassName : allClassNames.keySet()) {
             if (otherClassName != null && !otherClassName.equals(className) && !className.contains(otherClassName)) {

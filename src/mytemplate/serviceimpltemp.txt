@@ -1,25 +1,25 @@
 package {{basePackage}}.service.impl;
 
-import cn.oa.cyb.base.BaseServiceImpl;
-import cn.oa.cyb.base.IBaseDao;
-import {{basePackage}}.model.{{className}};
-import {{basePackage}}.service.{{serviceName}};
-import org.apache.log4j.Logger;
-import org.nutz.ioc.loader.annotation.Inject;
-import org.nutz.ioc.loader.annotation.IocBean;
+import com.hioseo.base.BaseServiceImpl;
+import com.hioseo.base.BaseSqlMapper;
+import {{basePackage}}.entity.{{className}};
+import {{basePackage}}.mapper.{{daoName}};
+import {{basePackage}}.service.I{{serviceName}};
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 
 /**
-  * @author generator-wq
-  * @date {{date}}
+ * @author wq
+ * @date 2018/5/8
  */
-@IocBean(name = "{{serviceBeanName}}")
-public class {{serviceImplName}} extends BaseServiceImpl<{{className}}> implements {{serviceName}} {
+@Service
+public class {{serviceImplName}} extends BaseServiceImpl<{{className}}> implements I{{serviceName}} {
 
-    private static Logger logger = Logger.getLogger("{{serviceImplName}}");
-
-    @Inject("refer:{{daoBeanName}}")
-    public void setBaseDao(IBaseDao<{{className}}> baseDao) {
-        this.baseDao = baseDao;
+    @Resource(type = {{daoName}}.class)
+    public void setSqlMapper(BaseSqlMapper sqlMapper) {
+        this.sqlMapper = sqlMapper;
     }
+
 
 }

@@ -4,7 +4,7 @@ import com.hioseo.base.BaseSqlMapper;
 import org.springframework.stereotype.Repository;
 
 /**
- * @author generatorwq
+ * @author generator-wq
  * @date 2018/10/2
  */
 @Repository

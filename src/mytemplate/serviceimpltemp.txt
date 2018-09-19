@@ -4,7 +4,7 @@ import com.hioseo.base.BaseServiceImpl;
 import com.hioseo.base.BaseSqlMapper;
 import {{basePackage}}.entity.{{className}};
 import {{basePackage}}.mapper.{{daoName}};
-import {{basePackage}}.service.I{{serviceName}};
+import {{basePackage}}.service.{{serviceName}};
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -14,7 +14,7 @@ import javax.annotation.Resource;
  * @date 2018/5/8
  */
 @Service
-public class {{serviceImplName}} extends BaseServiceImpl<{{className}}> implements I{{serviceName}} {
+public class {{serviceImplName}} extends BaseServiceImpl<{{className}}> implements {{serviceName}} {
 
     @Resource(type = {{daoName}}.class)
     public void setSqlMapper(BaseSqlMapper sqlMapper) {

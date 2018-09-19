@@ -2,17 +2,13 @@ package {{basePackage}}.web;
 
 import com.hioseo.base.BaseController;
 import com.hioseo.common.MapBean;
-import com.hioseo.common.PageEntity;
-import com.hioseo.common.PageParams;
-import {{basePackage}}.model.{{className}};
+import {{basePackage}}.entity.{{className}};
 import {{basePackage}}.service.{{serviceName}};
-import com.hioseo.utils.UUIDUtils;
 import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
-import java.util.Map;
 
 
 /**

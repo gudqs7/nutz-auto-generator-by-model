@@ -7,6 +7,6 @@ import {{basePackage}}.entity.{{className}};
  * @author wq
  * @date 2018/10/2
  */
-public interface I{{serviceName}} extends IBaseService<{{className}}> {
+public interface {{serviceName}} extends IBaseService<{{className}}> {
 
 }

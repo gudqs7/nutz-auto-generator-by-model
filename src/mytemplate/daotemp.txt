@@ -2,11 +2,12 @@ package {{basePackage}}.mapper;
 
 import com.hioseo.base.BaseSqlMapper;
 import org.springframework.stereotype.Repository;
+import {{basePackage}}.entity.{{className}};
 
 /**
  * @author generator-wq
  * @date 2018/10/2
  */
 @Repository
-public interface {{daoName}} extends BaseSqlMapper{
+public interface {{daoName}} extends BaseSqlMapper<{{className}}>{
 }

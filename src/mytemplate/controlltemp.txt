@@ -25,8 +25,7 @@ public class {{controllerName}} extends BaseController {
 
     @GetMapping("/findAll")
     public MapBean findAll() throws Exception {
-        List<{{className}}> {{className}}List = {{serviceBeanName}}.findAll();
-        return success({{className}}List);
+        return success({{serviceBeanName}}.findAll());
     }
 
 }

@@ -5,7 +5,7 @@ import {{basePackage}}.entity.{{className}};
 
 /**
  * @author wq
- * @date 2018/10/2
+ * @date {{date}}
  */
 public interface {{serviceName}} extends IBaseService<{{className}}> {
 

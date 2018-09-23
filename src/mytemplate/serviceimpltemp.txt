@@ -11,7 +11,7 @@ import javax.annotation.Resource;
 
 /**
  * @author wq
- * @date 2018/5/8
+ * @date {{date}}
  */
 @Service
 public class {{serviceImplName}} extends BaseServiceImpl<{{className}}> implements {{serviceName}} {

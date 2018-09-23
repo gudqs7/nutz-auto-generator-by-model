@@ -6,7 +6,7 @@ import {{basePackage}}.entity.{{className}};
 
 /**
  * @author generator-wq
- * @date 2018/10/2
+ * @date {{date}}
  */
 @Repository
 public interface {{daoName}} extends BaseSqlMapper<{{className}}>{

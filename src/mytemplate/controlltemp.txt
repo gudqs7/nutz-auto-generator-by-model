@@ -13,7 +13,7 @@ import java.util.List;
 
 /**
  * @author generator-wq
- * @date 2018/10/2
+ * @date {{date}}
  */
 @RestController
 @RequestMapping("/api/{{controllerUrl}}")

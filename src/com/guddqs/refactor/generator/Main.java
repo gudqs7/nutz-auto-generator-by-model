@@ -17,6 +17,7 @@ public class Main {
     private static String FILE = "";
     private static String SUFFIX = "java";
     private static String PREFIX = "src/";
+    private static String MAPPER_PREFIX = "src/mybatis-mapper";
     private static String BASE_PACKAGE = "java";
     private static Map<String, GeneratorTaskVo> classNames = new HashMap<>();
 
@@ -29,6 +30,7 @@ public class Main {
             FILE = config.getProperty("generator.file");
             SUFFIX = config.getProperty("generator.suffix");
             PREFIX = config.getProperty("generator.prefix");
+            MAPPER_PREFIX = config.getProperty("generator.mapper.prefix");
             BASE_PACKAGE = config.getProperty("generator.basepackage");
             OVERRIDE = config.getProperty("generator.override");
         } catch (IOException e) {
@@ -90,7 +92,8 @@ public class Main {
 
         String modelPath = PREFIX + (BASE_PACKAGE + ".entity").replaceAll("\\.", "/");
         String daoPath = PREFIX + (BASE_PACKAGE + ".mapper").replaceAll("\\.", "/");
-        String daoImplPath = PREFIX + (BASE_PACKAGE + ".dao.impl").replaceAll("\\.", "/");
+        System.out.println(BASE_PACKAGE + ": " + BASE_PACKAGE.lastIndexOf('.'));
+        String mapperPath = MAPPER_PREFIX + "/" + (BASE_PACKAGE.substring(BASE_PACKAGE.lastIndexOf('.') + 1, BASE_PACKAGE.length()));
         String servicePath = PREFIX + (BASE_PACKAGE + ".service").replaceAll("\\.", "/");
         String serviceImplPath = PREFIX + (BASE_PACKAGE + ".service.impl").replaceAll("\\.", "/");
         String controllerPath = PREFIX + (BASE_PACKAGE + ".web").replaceAll("\\.", "/");
@@ -102,7 +105,6 @@ public class Main {
         String daoBeanName = className.substring(0, 1).toLowerCase() + className.substring(1) + "Mapper";
         String controllerUrl = BASE_PACKAGE.substring(BASE_PACKAGE.lastIndexOf('.') + 1) + "/" + className.substring(0, 1).toLowerCase() + className.substring(1);
         String serviceBeanName = className.substring(0, 1).toLowerCase() + className.substring(1) + "Service";
-        String daoImplName = className + "DaoImpl";
         String serviceImplName = className + "ServiceImpl";
         String controllerName = className + "Controller";
         String daoName = className + "Mapper";
@@ -112,7 +114,6 @@ public class Main {
         data.put("controllerUrl", controllerUrl);
         data.put("basePackage", BASE_PACKAGE);
         data.put("daoName", daoName);
-        data.put("daoImplName", daoImplName);
         data.put("daoBeanName", daoBeanName);
         data.put("serviceName", serviceName);
         data.put("serviceBeanName", serviceBeanName + "Impl");
@@ -122,7 +123,7 @@ public class Main {
 
         String daoContent = getTemplate("mytemplate/daotemp.txt", data);
 
-        String daoImplContent = getTemplate("mytemplate/daoimpltemp.txt", data);
+        String mapperContent = getTemplate("mytemplate/mapper.txt", data);
 
         String serviceContent = getTemplate("mytemplate/servicetemp.txt", data);
 
@@ -132,10 +133,8 @@ public class Main {
 
         boolean success = FileHelper.writeFile(daoContent, new File(daoPath), new File(daoPath + "/" + daoName + ".java"));
         System.out.println("Write Dao--> " + success);
-        /*
-        success = FileHelper.writeFile(daoImplContent, new File(daoImplPath), new File(daoImplPath + "/" + daoImplName + ".java"));
-        System.out.println("Write DaoImpl--> " + success);
-        */
+        success = FileHelper.writeFile(mapperContent, new File(mapperPath), new File(mapperPath + "/" + daoName + ".xml"));
+        System.out.println("Write Mapper--> " + success);
         success = FileHelper.writeFile(serviceContent, new File(servicePath), new File(servicePath + "/" + serviceName + ".java"));
         System.out.println("Write Service--> " + success);
         success = FileHelper.writeFile(serviceImplContent, new File(serviceImplPath), new File(serviceImplPath + "/" + serviceImplName + ".java"));

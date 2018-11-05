@@ -1,6 +1,6 @@
 package {{basePackage}}.service;
 
-import com.hioseo.base.IBaseService;
+import com.guddqs.base.IBaseService;
 import {{basePackage}}.entity.{{className}};
 
 /**

@@ -1,6 +1,6 @@
 package {{basePackage}}.mapper;
 
-import com.hioseo.base.BaseSqlMapper;
+import com.guddqs.base.BaseSqlMapper;
 import org.springframework.stereotype.Repository;
 import {{basePackage}}.entity.{{className}};
 

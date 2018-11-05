@@ -1,7 +1,7 @@
 package {{basePackage}}.service.impl;
 
-import com.hioseo.base.BaseServiceImpl;
-import com.hioseo.base.BaseSqlMapper;
+import com.guddqs.base.BaseServiceImpl;
+import com.guddqs.base.BaseSqlMapper;
 import {{basePackage}}.entity.{{className}};
 import {{basePackage}}.mapper.{{daoName}};
 import {{basePackage}}.service.{{serviceName}};

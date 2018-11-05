@@ -1,7 +1,7 @@
 package {{basePackage}}.web;
 
-import com.hioseo.base.BaseController;
-import com.hioseo.common.MapBean;
+import com.guddqs.base.BaseController;
+import com.guddqs.base.MapBean;
 import {{basePackage}}.entity.{{className}};
 import {{basePackage}}.service.{{serviceName}};
 import io.swagger.annotations.Api;

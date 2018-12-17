@@ -116,7 +116,7 @@ public class Main {
         data.put("daoName", daoName);
         data.put("daoBeanName", daoBeanName);
         data.put("serviceName", serviceName);
-        data.put("serviceBeanName", serviceBeanName + "Impl");
+        data.put("serviceBeanName", serviceBeanName);
         data.put("serviceImplName", serviceImplName);
         data.put("controllerName", controllerName);
         data.put("date", new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new Date()));
